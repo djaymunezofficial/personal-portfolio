@@ -1,0 +1,735 @@
+html {
+    /* Enables smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+}
+
+body {  
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* Default text color */
+}
+
+main {
+    /* Adds space at the top so content isn't hidden by the nav bar */
+    padding-top: 80px;
+}
+
+/* --- Navigation Bar (Desktop) --- */
+nav {
+    position: fixed; 
+    top: 20px;
+    right: 20px;
+
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+
+    padding: 10px 15px;
+    border-radius: 50px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Stays on top of other content */
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+nav a:hover,
+nav a.active { 
+    /* Highlight for active or hovered link */
+    background-color: #555;
+}
+
+/* Underline grow effect for desktop nav */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Starts hidden */
+    height: 3px;
+    background: #61dafb; 
+    bottom: -5px;
+    left: 13px;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 70%; /* Grows on hover */
+}
+
+/* Mobile menu icons (hidden on desktop) */
+#nav-toggle-close {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+#nav-toggle-open {
+    display: none; 
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer;
+    filter: invert(1); /* Makes the black icon white */
+}
+
+/* --- Reusable Styles --- */
+.content-section {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #007bff; 
+    padding-bottom: 5px;
+}
+
+/* Base style for all content cards */
+.card {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: #ffffff; 
+
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    align-items: flex-start; 
+    gap: 30px; 
+}
+
+
+.card-text {
+    padding-top: 20px; 
+}
+
+/* --- 1. Hero Section --- */
+#hero {
+    min-height: 90vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 0; 
+}
+
+#hero img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; 
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#hero .hero-text h1,
+#hero .hero-text h2 {
+    margin: 0;
+    font-size: 4.5rem; 
+    font-weight: 300;
+}
+
+#hero .hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+/* Neon glow effect for name */
+#hero .hero-text span {
+    font-weight: 700;
+    color: #c24646; 
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #61dafb,
+        0 0 30px #61dafb,
+        0 0 40px #61dafb,
+        0 0 50px #61dafb;
+}
+
+#hero .hero-text hr {
+    border: 0;
+    height: 2px;
+    background-color: #61dafb; 
+    margin: 10px 0;
+    width: 600px;
+}
+
+/* --- 2. About Section --- */
+#about .card img {
+    width: 250px;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.7);
+}
+
+#about .card h4 {
+    font-size: 2.2rem;
+    margin-top: 15px; /* Lowers the name */
+    color: #61dafb;   /* Accent color */
+    text-align: left; 
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    display: block;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: left; 
+}
+
+#about .card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0; 
+    text-align: left; 
+}
+
+.about-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px;
+    margin: 20px 0;
+    color: #e0e0e0; 
+    text-align: left; 
+}
+
+.detail-item {
+    font-size: 0.9rem;
+}
+
+.detail-item span {
+    color: #ffffff; 
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+/* Style for the CV button */
+#about .card .btn {
+    background-color: #61dafb; 
+    color: #333; 
+}
+
+#about .card .btn:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(97, 218, 251, 0.3);
+}
+
+/* --- 3. Skills Section --- */
+#skills-card {
+    display: block; /* Overrides default .card flex style */
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff; 
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 30px;
+}
+
+.skill-item {
+    background: rgba(0, 0, 0, 0.15); /* Darker glass box for each skill */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.25);
+}
+    
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.skill-name {
+    color: #ffffff;
+}
+
+.skill-percent {
+    color: #e0e0e0;
+}
+
+.skill-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* Unique Progress Bar Colors */
+.skill-bar.java {
+    background: #f89820; /* Java Orange */
+}
+.skill-bar.canva {
+    background: #8d44ad; /* Canva Purple */
+}
+.skill-bar.web {
+    background: #e44d26; /* HTML Orange/Red */
+}
+.skill-bar.photoshop {
+    background: #31a8ff; /* Photoshop Blue */
+}
+
+/* --- 4. Portfolio Section --- */
+#portfolio-card {
+    max-width: 1100px;
+    display: block; 
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px; 
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); 
+}
+.project-card:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-content h4 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* --- Reusable Button Style --- */
+.btn {
+    display: inline-block;
+    background-color: #007bff; 
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.show {
+    /* Class added by JS to start animation */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 5. Contact Section --- */
+#contact {
+    min-height: 70vh; /* Adds space for scroll-to-link */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    align-items: flex-start; 
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    font-size: 1.2rem; 
+    color: #ffffff; 
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff; 
+    width: 30px; 
+}
+.contact-link {
+    text-decoration: none; 
+    color: #ffffff; 
+    border-radius: 20px; 
+    transition: background-color 0.3s ease;
+}
+.contact-link:hover .contact-item {
+    background: rgba(255, 255, 255, 0.1); 
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1c1c1c;
+    color: #aaa;
+    margin-top: 40px;
+}
+
+/* --- Video Background --- */
+.video-background {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100; /* Sits behind all content */
+    overflow: hidden; 
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the screen, may zoom/crop */
+}
+
+/* Dark overlay on top of video */
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+/* ======================================= */
+/* === RESPONSIVE STYLES (For Mobile) === */
+/* ======================================= */
+@media (max-width: 900px) {
+
+    /* --- Mobile Navigation Bar --- */
+    nav {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        right: auto; /* FIX: Resets desktop 'right: 20px' */
+        transform: none; /* FIX: Resets desktop transform */
+        
+        width: 100%; 
+        padding: 20px;
+        border-radius: 0; 
+        background: rgba(44, 44, 56, 1); /* Solid on mobile */
+        
+        display: flex;
+        justify-content: flex-start; 
+        z-index: 1000;
+        box-sizing: border-box;
+
+        /* FIX: Disables the desktop glass effect on mobile */
+        backdrop-filter: none;
+        border: none;
+    }
+
+    #nav-toggle-close {
+        display: none;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    #nav-toggle-open {
+        display: block; /* Show the hamburger icon */
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        filter: invert(1);
+    }
+    
+    /* Mobile Flyout Menu */
+    .nav-links {
+        display: flex;
+        flex-direction: column; 
+        position: fixed;
+        
+        /* Glassmorphism Style */
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        /* Position & Size */
+        height: auto;
+        width: 250px;
+        top: 80px;  
+        left: 20px;
+        
+        /* Animation */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        
+        z-index: 2000;
+    }
+
+    /* "Open" state for menu (toggled by JS) */
+    nav.open .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    nav.open #nav-toggle-close {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 2001;
+    }
+    
+    nav.open #nav-toggle-open {
+        display: none;
+    }
+
+    /* Mobile menu links */
+    nav .nav-links a {
+        padding: 20px;
+        font-size: 1.2rem;
+        text-align: left;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        position: static; /* FIX: Prevents desktop position:relative */
+    }
+    
+    /* FIX: Hides the desktop underline on mobile */
+    .nav-links a::after {
+        display: none;
+    }
+
+    nav .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* --- Other Mobile Styles --- */
+    main {
+        padding-top: 80px; 
+    }
+
+    #hero {
+        flex-direction: column; 
+        gap: 20px;
+        text-align: center; 
+        min-height: calc(100vh - 80px); 
+    }
+
+    #hero img {
+        width: 180px;
+        height: 180px;
+    }
+
+    #hero .hero-text h1,
+    #hero .hero-text h2 {
+        font-size: 2.2rem; 
+        line-height: 1.3;  
+    }
+
+    #hero .hero-text h1 {
+        font-size: 1.6rem; 
+    }
+    
+    #hero .hero-text hr {
+        margin: 10px auto;
+        width: 150px;
+    }
+
+    .card {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #about .card {
+        align-items: center; 
+    }
+
+    #about .card h4,
+    .subtitle,
+    #about .card .card-text,
+    .about-details {
+        text-align: center;
+    }
+
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        width: 90%; 
+        padding: 20px;
+    }
+
+    .contact-item span,
+    footer p {
+        overflow-wrap: break-word;
+        word-break: break-all;
+    }
+}
+
+/* ======================================= */
+/* === MOBILE LANDSCAPE STYLES === */
+/* ======================================= */
+@media (max-width: 900px) and (orientation: landscape) {
+    
+    #hero {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    #hero img {
+        width: 150px;
+        height: 150px;
+    }
+
+    #hero .hero-text h1,
+    #hero .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    #hero .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    #hero .hero-text hr {
+        margin: 10px auto;
+        width: 150px;
+    }
+
+    .card {
+        flex-direction: column;
+        width: 90%; 
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+/* --- Scroll-to-Top Button --- */
+#scrollTopBtn {
+    display: flex; /* Use flex to center the icon */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999; 
+    
+    background: #007bff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Hides button by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* Styles the custom icon */
+#scrollTopBtn img {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+}
+
+#scrollTopBtn:hover {
+    background: #0056b3; 
+}
+
+/* Class added by JS to show the button */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
